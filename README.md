@@ -1,5 +1,5 @@
 ## Abstract
-The **Spark AI Media Campaign Generator** is a full-stack, AI-powered application designed to automate the creation of platform-specific social media marketing campaigns. Leveraging an agentic workflow orchestrated by LangGraph, the system analyzes user-provided context and multimodal inputs (images/posters) using Google's Gemini 2.5 Flash model. To ensure strict adherence to corporate brand guidelines, a Retrieval-Augmented Generation (RAG) architecture is implemented utilizing ChromaDB as a vector store. The application is packaged as a modular monolith using Streamlit and SQLite, enabling a seamless, serverless deployment to the Streamlit Community Cloud.
+The **AI Media Campaign Generator** is a full-stack, AI-powered application designed to automate the creation of platform-specific social media marketing campaigns. Leveraging an agentic workflow orchestrated by LangGraph, the system analyzes user-provided context and multimodal inputs (images/posters) using Google's Gemini 2.5 Flash model. To ensure strict adherence to corporate brand guidelines, a Retrieval-Augmented Generation (RAG) architecture is implemented utilizing ChromaDB as a vector store. The application is packaged as a modular monolith using Streamlit and SQLite, enabling a seamless, serverless deployment to the Streamlit Community Cloud.
 
 ---
 
@@ -50,7 +50,7 @@ SOCIAL_MEDIA_CAMPAIGN/
     ├── graph_agent.py    # LangGraph state machine definition
     ├── image.py          # Pillow compression & Gemini Vision integration
     └── vector_store.py   # HuggingFace embeddings & ChromaDB operations
-
+```
 4. Required Libraries (Tech Stack)
 The project relies on a modern AI and web framework stack. See requirements.txt for exact versions.
 
@@ -112,7 +112,7 @@ Code snippet
 GOOGLE_API_KEY="your_google_api_key_here"
 HF_TOKEN="your_huggingface_token_here"
 
-# Optional: LangSmith Tracing for Analytics
+# LangSmith Tracing for Analytics
 LANGCHAIN_TRACING="true"
 LANGCHAIN_ENDPOINT="[https://api.smith.langchain.com](https://api.smith.langchain.com)"
 LANGCHAIN_API_KEY="your_langsmith_key_here"
