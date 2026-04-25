@@ -1,0 +1,14 @@
+# Secret Keys (CRITICAL)
+.env
+
+# Virtual Environments
+.venv/
+venv/
+
+# Local Databases & AI Memory
+ai_media.db
+chroma_db/
+
+# Python Cache Files
+__pycache__/
+*.pyc
