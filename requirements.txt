@@ -6,3 +6,4 @@ langchain-chroma
 langchain-huggingface
 sentence-transformers
 protobuf<4.0.0
+Pillow
