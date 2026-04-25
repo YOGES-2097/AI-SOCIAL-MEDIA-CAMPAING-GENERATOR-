@@ -1,10 +1,27 @@
 import os
 import base64
+from io import BytesIO
+from PIL import Image
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_core.messages import HumanMessage
 
 def analyze_poster(image_bytes: bytes) -> str:
-    """Takes an uploaded image and returns a detailed description for the copywriter."""
+    """Compresses the image using Pillow, then sends it to Gemini to save tokens."""
+    # 1. Open the image from the raw Streamlit bytes
+    img = Image.open(BytesIO(image_bytes))
+    
+    # 2. Convert to RGB (Required if the user uploads a transparent PNG)
+    if img.mode in ("RGBA", "P"):
+        img = img.convert("RGB")
+        
+    # 3. Resize the image (Max 1024x1024, maintains aspect ratio)
+    img.thumbnail((1024, 1024))
+    
+    # 4. Save the compressed image back to temporary memory as a JPEG
+    output_buffer = BytesIO()
+    img.save(output_buffer, format="JPEG", quality=85)
+    compressed_bytes = output_buffer.getvalue()
+    # --------------------------------
     
     # Initialize the Gemini Vision model
     llm = ChatGoogleGenerativeAI(
@@ -12,8 +29,8 @@ def analyze_poster(image_bytes: bytes) -> str:
         google_api_key=os.getenv("GOOGLE_API_KEY")
     )
     
-    # Convert the raw image bytes to base64 so the API can read it
-    image_b64 = base64.b64encode(image_bytes).decode("utf-8")
+    # Convert the COMPRESSED image bytes to base64
+    image_b64 = base64.b64encode(compressed_bytes).decode("utf-8")
     
     # Construct the multimodal message
     message = HumanMessage(
