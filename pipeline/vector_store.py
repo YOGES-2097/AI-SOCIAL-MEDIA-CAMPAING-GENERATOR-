@@ -33,8 +33,23 @@ def seed_database():
     
     # Here are the strict rules the AI MUST follow
     guidelines = [
-        "Brand Voice Rule: We are highly energetic but strictly professional. Never use slang words like 'bro', 'lit', or 'bet'.",
-        "Pricing Rule: Never mention exact prices or dollar amounts in social media posts. Always direct users to 'Click the link in bio to see our plans'.",
+        # --- Voice & Tone Rules ---
+        "Brand Voice Rule: Always maintain an authoritative but approachable tone. Never use overly casual internet slang, abbreviations, or aggressive sales language.",
+        "Empathy Rule: When discussing customer pain points, use empathetic language. Focus on how the product or service empowers the user rather than just listing technical features.",
+        "Emoji Rule: Use emojis sparingly and only when appropriate for the platform. Never use more than three emojis per post.",
+        
+        # --- Compliance & Financial Rules ---
+        "Pricing Rule: Never state exact prices, discounts, or dollar amounts in social media posts unless explicitly instructed. Always direct the user to 'Visit our website for pricing tiers'.",
+        "ROI Rule: Never guarantee specific financial returns, conversion rates, or guaranteed success. Use phrases like 'helps optimize' or 'designed to improve'.",
+        
+        # --- Engagement & Conversion Rules ---
+        "Call-To-Action Rule: Always conclude promotional posts with a clear Call-To-Action (CTA) instructing the user to 'Click the link in the comments' or 'Link in bio'.",
+        "Competitor Rule: Never explicitly name competitor brands or speak negatively about other companies in the industry. Focus exclusively on our own unique value propositions.",
+        
+        # --- Platform-Specific Formatting Rules ---
+        "LinkedIn Guidelines: For LinkedIn content, structure the post with a strong hook in the first line. Break up text into short, readable sentences with line breaks. Use industry-standard terminology.",
+        "X (Twitter) Guidelines: For X (Twitter), keep the core message concise. Be punchy, direct, and use no more than two highly relevant hashtags.",
+        "Instagram Guidelines: For Instagram, focus heavily on the aesthetic or visual value of the product being shown. Place all hashtags at the absolute bottom of the caption."
         
     ]
     
